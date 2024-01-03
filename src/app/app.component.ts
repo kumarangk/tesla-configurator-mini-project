@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {AsyncPipe, JsonPipe} from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [AsyncPipe, JsonPipe],
+  template: `
+    <h1>Hello from {{ name }}!</h1>
+  `,
 })
 export class AppComponent {
-  title = 'tesla-configurator';
+  name = 'Angular';
+
 }
