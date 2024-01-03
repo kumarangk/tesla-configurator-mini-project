@@ -9,9 +9,9 @@ bootstrapApplication(AppComponent, appConfig)
 
 
 const handlers = [
-  http.get('/config/:id', ({ params }) => {
+  http.get('/option/:id', ({ params }) => {
 
-    const configs = {
+    const options = {
       "S": {
         configs: [
           {id: 1, description: "Dual Motor All-Wheel Drive", range: 405, speed: 149, price: 74990},
@@ -57,7 +57,7 @@ const handlers = [
       }
     };
     // @ts-ignore
-    return HttpResponse.json(configs[params.id.toUpperCase()]);
+    return HttpResponse.json(options[params.id.toUpperCase()]);
   }),
   http.get('/models', ({ request, params, cookies }) => {
     return HttpResponse.json([
