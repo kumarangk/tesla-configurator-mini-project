@@ -9,7 +9,7 @@ bootstrapApplication(AppComponent, appConfig)
 
 
 const handlers = [
-  http.get('/option/:id', ({ params }) => {
+  http.get('/options/:id', ({ params }) => {
 
     const options = {
       "S": {
