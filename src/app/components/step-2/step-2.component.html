@@ -1,0 +1,32 @@
+<div class="step2-section">
+  <form #firstStepForm="ngForm">
+    <h1>Step 2: Select your config and options</h1>
+    <div class="form-group">
+      <label>Config:</label>
+      <select #configSelect name="configSelect" id="configSelect" [(ngModel)]="configDetails.config" (change)="onConfigChange(configSelect.value)">
+        <option disabled selected value="0">Choose..</option>
+        <option *ngFor="let config of configList.configs" [value]="config.id">{{config.description}}</option>
+      </select>
+      <ng-container *ngIf="configDetails.config">
+        <p>Range: {{range}} miles - Max speed: {{speed}} - Cost: {{price | currency: 'USD' : 'symbol' : '4.2-2' }}</p>
+      </ng-container>
+    </div>
+    <ng-container *ngIf="configList.towHitch">
+      <div class="form-group">
+        <label>Tow hitch?</label>
+        <input #includeTow name="includeTow" type="checkbox" class="checkbox" [(ngModel)]="configDetails.towHitch" (change)="onTowChange(includeTow.checked)">
+      </div>
+    </ng-container>
+    <ng-container  *ngIf="configList.yoke">
+      <div class="form-group">
+        <label>Yoke steering wheel?</label>
+        <input #includeYoke name="includeYoke" type="checkbox" class="checkbox" [(ngModel)]="configDetails.yoke" (change)="onYokeChange(includeYoke.checked)">
+      </div>
+    </ng-container>
+    <ng-container *ngIf="imgURL">
+      <div class="form-group">
+        <img id="carImage" class="imageCss" [src]="imgURL">
+      </div>
+    </ng-container>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+<div class="step3-section">
+  <h1>Step 3: Summary</h1>
+  <h3>Your Tesla{{selectedModel.description}}</h3>
+
+  <div class="detailSection" *ngFor="let data of priceDetails">
+    <div class="labelSection">
+      <label class="lbl">{{data.title}}</label>
+      <ng-container *ngIf="data.hasDescription">
+        <p class="desc">Range: {{data.range}} miles - Max speed: {{data.speed}}</p>
+      </ng-container>
+    </div>
+    <div class="valueSection">
+      <label>{{data.value  | currency: 'USD' : 'symbol' : '4.2-2'}}</label>
+    </div>
+  </div>
+  <hr/>
+  <div class="detailSection">
+    <div class="labelSection">
+      <label class="lbl">TOTAL AMOUNT</label>
+    </div>
+    <div class="valueSection">
+      <label>{{totalAmount  | currency: 'USD' : 'symbol' : '4.2-2'}}</label>
+    </div>
+  </div>
+  <hr/>
+  <img [src]="imgURL">
+</div>

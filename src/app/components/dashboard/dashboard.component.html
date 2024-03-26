@@ -1,0 +1,5 @@
+<div class="tab-section">
+    <button class="tab" #step1 id="step1"  (click)="selectedTab(step1.id)">Step 1</button>
+    <button class="tab" #step2 id="step2" [disabled]="!carService.getStep1AuthStatus" (click)="selectedTab(step2.id)">Step 2</button>
+    <button class="tab" #step3 id="step3" [disabled]="!carService.getStep2AuthStatus" (click)="selectedTab(step3.id)">Step 3</button>
+</div>
